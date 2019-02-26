@@ -3,7 +3,7 @@ defmodule VCard.DataTest do
   doctest VCard.Data
 
   setup do
-    {:ok, vcard: VCard.new}
+    {:ok, vcard: VCard.new()}
   end
 
   Enum.each(~w(role title logo)a, fn field ->
@@ -20,7 +20,9 @@ defmodule VCard.DataTest do
     assert vcard.fn == ""
   end
 
-  test "data has a :adr field that defaults to a list with a single VCard.Data.Adr struct", %{vcard: vcard} do
+  test "data has a :adr field that defaults to a list with a single VCard.Data.Adr struct", %{
+    vcard: vcard
+  } do
     assert vcard.adr == [%VCard.Data.Adr{}]
   end
 

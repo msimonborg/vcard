@@ -13,4 +13,15 @@ defmodule VCard.Data.Photo do
       value: ""
     }
   )
+
+  @type t :: %__MODULE__{
+          meta: %{
+            mediatype: String.t(),
+            value: String.t(),
+            type: String.t()
+          },
+          data: %{
+            value: String.t()
+          }
+        }
 end

@@ -11,7 +11,7 @@ defmodule VCard.Data do
     Defaults to `""`. Maps to `FN`.
 
     * `:n` - A `VCard.Data.Name` struct representing the component parts of the full name.
-    Defaults to a default `VCard.Data.Name.t()`. Maps to `N`.
+    Defaults to a `VCard.Data.Name.t()`. Maps to `N`.
 
     * `:adr` - A list of `VCard.Data.Adr` structs, each one representing all of the addresses on the card.
     Defaults to a list containing a single default `VCard.Data.Adr.t()`. Each struct in the list
@@ -19,6 +19,25 @@ defmodule VCard.Data do
 
     * `:title` - A `String.t()` representing the title of the individual.
     Defaults to `""`. Maps to `TITLE`.
+
+    * `:role` - A `String.t()` representing the role of the individual in their organization.
+    Defaults to `""`. Maps to `ROLE`.
+
+    * `:logo` - A `String.t()` representing the URI of a logo image.
+    Defaults to `""`. Maps to `LOGO`.
+
+    * `:org` - A `VCard.Data.Org` struct that contains organization data. Data is separated into three
+    levels, from the structural top down: `:organization`, `:division`, and `:subdivision`. Defaults to
+    a `VCard.Data.Org.t()`. Maps to `ORG`.
+
+    * `:photo` - A `VCard.Data.Photo` struct that contains a URI value for a photo or image, along with
+    metadata on MIME types and image format. Defaults to a `VCard.Data.Photo.t()`. Maps to `PHOTO`.
+
+    * `:source` - A list of `String.t()`, each one identifying the URI of a source of directory information contained
+    in the content type. Defaults to `[]`. Each source in the list maps to a separate `SOURCE` property.
+
+    * `:kind` - An `atom` specifying the kind of object the vCard represents. Possible values: `:individual | :group | :org | :location | :"iana-token" | :"x-name"`
+    Maps to `KIND`.
 
   """
 
