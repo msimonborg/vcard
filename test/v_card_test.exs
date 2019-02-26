@@ -17,4 +17,23 @@ defmodule VCardTest do
       assert VCard.new(%{role: "customized"}) == %VCard.Data{role: "customized"}
     end
   end
+
+  describe "update_name/2" do
+    setup do
+      {:ok, %{vcard: VCard.new()}}
+    end
+
+    test "updates the name field", %{vcard: vcard} do
+      assert %VCard.Data{
+               fn: "full name",
+               n: %VCard.Data.Name{data: %{given: ["full"], family: ["name"]}}
+             } =
+               vcard
+               |> VCard.update_name(
+                 full_name: "full name",
+                 given_names: ["full"],
+                 family_names: ["name"]
+               )
+    end
+  end
 end
